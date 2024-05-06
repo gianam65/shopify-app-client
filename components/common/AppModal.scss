@@ -1,0 +1,39 @@
+.app__modal-container {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .app__modal-inner {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    min-width: 50vw;
+    position: relative;
+    .app__modal-content {
+      min-height: 10vh;
+      margin-top: 10px;
+    }
+
+    .app__modal-footer {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 20px;
+    }
+    .app__modal-close {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: 0.15s all ease-in-out;
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}

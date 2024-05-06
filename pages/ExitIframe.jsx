@@ -1,5 +1,5 @@
 import { Redirect } from "@shopify/app-bridge/actions";
-import { useAppBridge, Loading } from "@shopify/app-bridge-react";
+import { useAppBridge } from "@shopify/app-bridge-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Banner, Layout, Page } from "@shopify/polaris";
@@ -22,7 +22,7 @@ export default function ExitIframe() {
         const redirect = Redirect.create(app);
         redirect.dispatch(
           Redirect.Action.REMOTE,
-          decodeURIComponent(redirectUri)
+          decodeURIComponent(redirectUri),
         );
       } else {
         setShowWarning(true);
@@ -42,7 +42,5 @@ export default function ExitIframe() {
         </Layout.Section>
       </Layout>
     </Page>
-  ) : (
-    <Loading />
-  );
+  ) : null;
 }

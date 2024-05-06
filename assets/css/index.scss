@@ -1,0 +1,104 @@
+.color__box {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.sync__wrap {
+  button {
+    transition: 0.15s all ease-in-out;
+    color: #fff;
+    background: #2d8852;
+  }
+}
+.table__container {
+  .table__labels {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+
+    .table__label-name {
+      width: calc(100% / 3);
+      text-align: center;
+    }
+  }
+
+  .table__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .table__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .table__item-block {
+        width: calc(100% / 3);
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+      }
+      .table__item-name {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        .block__img {
+          flex-shrink: 0;
+        }
+        .product__name {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+        }
+      }
+
+      .table__item-action {
+        display: flex;
+        justify-content: center;
+        .action-block {
+          max-width: 20px;
+          max-height: 20px;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .table__navigations {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 12px;
+    gap: 12px;
+    .table__paginate-offset {
+      max-width: 72px; // calc(20px + 32px) 20px is target width, 32px are navigation of input type number
+    }
+
+    .table__navigator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      .Polaris-Button--iconOnly {
+        border-radius: 50%;
+      }
+    }
+    .navigator__icon {
+      display: flex;
+    }
+  }
+}
+
+.block__stack {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}

@@ -1,0 +1,31 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration  
+# "https://html-pens-electron-affiliated.trycloudflare.com"
+
+
+client_id = "9cb5a27fd644106017505e873e77a3dd"
+name = "demo-app"
+handle = "demo-app-899"
+application_url = "https://de90-113-160-81-90.ngrok-free.app/"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "namgia-development.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products"
+
+[auth]
+redirect_urls = [
+  "https://html-pens-electron-affiliated.trycloudflare.com/auth/callback",
+  "https://html-pens-electron-affiliated.trycloudflare.com/auth/shopify/callback",
+  "https://html-pens-electron-affiliated.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+[pos]
+embedded = false

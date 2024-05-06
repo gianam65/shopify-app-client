@@ -1,0 +1,38 @@
+{% assign config_string = product.metafields.app_block_config.config %}
+{% assign message_match = config_string | split: '"message":"' | last | split: '",' | first %}
+{% assign color_match = config_string | split: '"color":"' | last | split: '",' | first %}
+{% assign fontSize_match = config_string | split: '"fontSize":' | last | split: ',' | first | remove: '}' %}
+
+{% assign shop_fields = shop.metafields.app__product__config.config %}
+{% assign default_message = shop_fields | split: '"message":"' | last | split: '",' | first %}
+{% assign default_color = shop_fields | split: '"color":"' | last | split: '",' | first %}
+{% assign default_font = shop_fields | split: '"fontSize":' | last | split: ',' | first | remove: '}' %}
+
+{% assign message = message_match | strip %}
+{% assign color = color_match | strip %}
+{% assign fontSize = fontSize_match | strip %}
+
+{% if message == blank %}
+  {% assign message = default_message %}
+{% endif %}
+
+{% if color == blank %}
+  {% assign color = default_color %}
+{% endif %}
+
+{% if fontSize == blank %}
+  {% assign fontSize = default_font %}
+{% endif %}
+
+<div>
+  <span class="product__desc" style="color: {{ color }}; font-size: {{ fontSize }}px">{{ message }}</span>
+</div>
+
+{% schema %}
+{
+  "name": "Product desc",
+  "target": "section",
+  "settings": [
+  ]
+}
+{% endschema %}

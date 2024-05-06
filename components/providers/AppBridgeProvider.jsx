@@ -21,35 +21,30 @@ export function AppBridgeProvider({ children }) {
         navigate(path, { replace: true });
       },
     }),
-    [navigate]
+    [navigate],
   );
 
   const routerConfig = useMemo(
     () => ({ history, location }),
-    [history, location]
+    [history, location],
   );
 
-  // The host may be present initially, but later removed by navigation.
-  // By caching this in state, we ensure that the host is never lost.
-  // During the lifecycle of an app, these values should never be updated anyway.
-  // Using state in this way is preferable to useMemo.
-  // See: https://stackoverflow.com/questions/60482318/version-of-usememo-for-caching-a-value-that-will-never-change
   const [appBridgeConfig] = useState(() => {
     const host =
       new URLSearchParams(location.search).get("host") ||
-      window.__SHOPIFY_DEV_HOST;
+      window.__SHOPIFY_DEV_HOST ||
+      "YWRtaW4uc2hvcGlmeS5jb20vc3RvcmUvbmFtZ2lhLWRldmVsb3BtZW4";
 
     window.__SHOPIFY_DEV_HOST = host;
 
     return {
       host,
-      apiKey: process.env.SHOPIFY_API_KEY,
-      forceRedirect: true,
+      apiKey: import.meta.env.VITE_API_KEY,
+      forceRedirect: false,
     };
   });
-
-  if (!process.env.SHOPIFY_API_KEY || !appBridgeConfig.host) {
-    const bannerProps = !process.env.SHOPIFY_API_KEY
+  if (!import.meta.env.VITE_API_KEY || !appBridgeConfig.host) {
+    const bannerProps = !import.meta.env.VITE_API_KEY
       ? {
           title: "Missing Shopify API Key",
           children: (

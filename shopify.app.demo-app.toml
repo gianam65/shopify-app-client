@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "9cb5a27fd644106017505e873e77a3dd"
+name = "demo-app"
+handle = "demo-app-899"
+application_url = "https://decisions-life-bloom-reduced.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "namgia-development.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products"
+
+[auth]
+redirect_urls = [
+  "https://decisions-life-bloom-reduced.trycloudflare.com/auth/callback",
+  "https://decisions-life-bloom-reduced.trycloudflare.com/auth/shopify/callback",
+  "https://decisions-life-bloom-reduced.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+[pos]
+embedded = false

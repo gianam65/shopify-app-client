@@ -142,7 +142,7 @@ async function initI18next() {
     .use(ShopifyFormat)
     .use(localResourcesToBackend())
     .init({
-      debug: process.env.NODE_ENV === "development",
+      debug: false,
       lng: getUserLocale(),
       fallbackLng: DEFAULT_APP_LOCALE,
       supportedLngs: SUPPORTED_APP_LOCALES,
